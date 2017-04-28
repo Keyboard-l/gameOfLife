@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Game of Life</title>
+    <link rel="stylesheet" type="text/css" href="./css/main.css"/>
+    <script rel="script" type="text/javascript" src="./js/main.js"></script>
+    <script rel="script" type="text/javascript" src="./js/try.js"></script>
+</head>
+<body>
+<div class="main">
+    <div class="left contain">
+        <h2>生命游戏</h2>
+        <p>生命游戏，又叫元胞自动机、细胞自动机。是英国数学家John Horton Conway于1970年设计的</p>
+        <p>就形式而言，细胞自动机有三个特征：</p>
+        <lu>
+            <li>平行计算(Parallel Computation)：每个细胞个体都同时同步地改变；</li>
+            <li>局部性(Local)：细胞的状态变化只受邻近细胞的影响；</li>
+            <li>一致性(Homogeneous)：所有细胞均受同样的规则所支配。</li>
+        </lu>
+        <br/>
+        <h3>所有细胞的生存、死亡、出生均受以下规则所支配：</h3>
+        <p>每个邻近的八个格子中的活细胞为该细胞的邻居</p>
+        <lu>
+            <li>当一个活细胞的邻居数大于3时，它会因为拥挤而死亡；</li>
+            <li>当一个活细胞的邻居数小于2时，它又会因为孤独而死亡。</li>
+            <li>当一个空格的邻居数为3时，一个新的细胞会在此产生。</li>
+        </lu>
+        <p>(当然，你可以改变这些规则。)</p>
+    </div>
+    <div class="center contain">
+        <table>
+            <tr>
+                <td id="on0101" class="off" onclick="turn('on0101')"></td>
+                <td id="on0102" class="off" onclick="turn('on0102')"></td>
+                <td id="on0103" class="off" onclick="turn('on0103')"></td>
+                <td id="on0104" class="off" onclick="turn('on0104')"></td>
+                <td id="on0105" class="off" onclick="turn('on0105')"></td>
+                <td id="on0106" class="off" onclick="turn('on0106')"></td>
+                <td id="on0107" class="off" onclick="turn('on0107')"></td>
+                <td id="on0108" class="off" onclick="turn('on0108')"></td>
+                <td id="on0109" class="off" onclick="turn('on0109')"></td>
+                <td id="on0110" class="off" onclick="turn('on0110')"></td>
+                <td id="on0111" class="off" onclick="turn('on0111')"></td>
+                <td id="on0112" class="off" onclick="turn('on0112')"></td>
+                <td id="on0113" class="off" onclick="turn('on0113')"></td>
+                <td id="on0114" class="off" onclick="turn('on0114')"></td>
+                <td id="on0115" class="off" onclick="turn('on0115')"></td>
+                <td id="on0116" class="off" onclick="turn('on0116')"></td>
+                <td id="on0117" class="off" onclick="turn('on0117')"></td>
+                <td id="on0118" class="off" onclick="turn('on0118')"></td>
+                <td id="on0119" class="off" onclick="turn('on0119')"></td>
+                <td id="on0120" class="off" onclick="turn('on0120')"></td>
+                <td id="on0121" class="off" onclick="turn('on0121')"></td>
+                <td id="on0122" class="off" onclick="turn('on0122')"></td>
+                <td id="on0123" class="off" onclick="turn('on0123')"></td>
+                <td id="on0124" class="off" onclick="turn('on0124')"></td>
+                <td id="on0125" class="off" onclick="turn('on0125')"></td>
+            </tr>
+            <tr>
+                <td id="on0201" class="off" onclick="turn('on0201')"></td>
+                <td id="on0202" class="off" onclick="turn('on0202')"></td>
+                <td id="on0203" class="off" onclick="turn('on0203')"></td>
+                <td id="on0204" class="off" onclick="turn('on0204')"></td>
+                <td id="on0205" class="off" onclick="turn('on0205')"></td>
+                <td id="on0206" class="off" onclick="turn('on0206')"></td>
+                <td id="on0207" class="off" onclick="turn('on0207')"></td>
+                <td id="on0208" class="off" onclick="turn('on0208')"></td>
+                <td id="on0209" class="off" onclick="turn('on0209')"></td>
+                <td id="on0210" class="off" onclick="turn('on0210')"></td>
+                <td id="on0211" class="off" onclick="turn('on0211')"></td>
+                <td id="on0212" class="off" onclick="turn('on0212')"></td>
+                <td id="on0213" class="off" onclick="turn('on0213')"></td>
+                <td id="on0214" class="off" onclick="turn('on0214')"></td>
+                <td id="on0215" class="off" onclick="turn('on0215')"></td>
+                <td id="on0216" class="off" onclick="turn('on0216')"></td>
+                <td id="on0217" class="off" onclick="turn('on0217')"></td>
+                <td id="on0218" class="off" onclick="turn('on0218')"></td>
+                <td id="on0219" class="off" onclick="turn('on0219')"></td>
+                <td id="on0220" class="off" onclick="turn('on0220')"></td>
+                <td id="on0221" class="off" onclick="turn('on0221')"></td>
+                <td id="on0222" class="off" onclick="turn('on0222')"></td>
+                <td id="on0223" class="off" onclick="turn('on0223')"></td>
+                <td id="on0224" class="off" onclick="turn('on0224')"></td>
+                <td id="on0225" class="off" onclick="turn('on0225')"></td>
+            </tr>
+            <tr>
+                <td id="on0301" class="off" onclick="turn('on0301')"></td>
+                <td id="on0302" class="off" onclick="turn('on0302')"></td>
+                <td id="on0303" class="off" onclick="turn('on0303')"></td>
+                <td id="on0304" class="off" onclick="turn('on0304')"></td>
+                <td id="on0305" class="off" onclick="turn('on0305')"></td>
+                <td id="on0306" class="off" onclick="turn('on0306')"></td>
+                <td id="on0307" class="off" onclick="turn('on0307')"></td>
+                <td id="on0308" class="off" onclick="turn('on0308')"></td>
+                <td id="on0309" class="off" onclick="turn('on0309')"></td>
+                <td id="on0310" class="off" onclick="turn('on0310')"></td>
+                <td id="on0311" class="off" onclick="turn('on0311')"></td>
+                <td id="on0312" class="off" onclick="turn('on0312')"></td>
+                <td id="on0313" class="off" onclick="turn('on0313')"></td>
+                <td id="on0314" class="off" onclick="turn('on0314')"></td>
+                <td id="on0315" class="off" onclick="turn('on0315')"></td>
+                <td id="on0316" class="off" onclick="turn('on0316')"></td>
+                <td id="on0317" class="off" onclick="turn('on0317')"></td>
+                <td id="on0318" class="off" onclick="turn('on0318')"></td>
+                <td id="on0319" class="off" onclick="turn('on0319')"></td>
+                <td id="on0320" class="off" onclick="turn('on0320')"></td>
+                <td id="on0321" class="off" onclick="turn('on0321')"></td>
+                <td id="on0322" class="off" onclick="turn('on0322')"></td>
+                <td id="on0323" class="off" onclick="turn('on0323')"></td>
+                <td id="on0324" class="off" onclick="turn('on0324')"></td>
+                <td id="on0325" class="off" onclick="turn('on0325')"></td>
+            </tr>
+            <tr>
+                <td id="on0401" class="off" onclick="turn('on0401')"></td>
+                <td id="on0402" class="off" onclick="turn('on0402')"></td>
+                <td id="on0403" class="off" onclick="turn('on0403')"></td>
+                <td id="on0404" class="off" onclick="turn('on0404')"></td>
+                <td id="on0405" class="off" onclick="turn('on0405')"></td>
+                <td id="on0406" class="off" onclick="turn('on0406')"></td>
+                <td id="on0407" class="off" onclick="turn('on0407')"></td>
+                <td id="on0408" class="off" onclick="turn('on0408')"></td>
+                <td id="on0409" class="off" onclick="turn('on0409')"></td>
+                <td id="on0410" class="off" onclick="turn('on0410')"></td>
+                <td id="on0411" class="off" onclick="turn('on0411')"></td>
+                <td id="on0412" class="off" onclick="turn('on0412')"></td>
+                <td id="on0413" class="off" onclick="turn('on0413')"></td>
+                <td id="on0414" class="off" onclick="turn('on0414')"></td>
+                <td id="on0415" class="off" onclick="turn('on0415')"></td>
+                <td id="on0416" class="off" onclick="turn('on0416')"></td>
+                <td id="on0417" class="off" onclick="turn('on0417')"></td>
+                <td id="on0418" class="off" onclick="turn('on0418')"></td>
+                <td id="on0419" class="off" onclick="turn('on0419')"></td>
+                <td id="on0420" class="off" onclick="turn('on0420')"></td>
+                <td id="on0421" class="off" onclick="turn('on0421')"></td>
+                <td id="on0422" class="off" onclick="turn('on0422')"></td>
+                <td id="on0423" class="off" onclick="turn('on0423')"></td>
+                <td id="on0424" class="off" onclick="turn('on0424')"></td>
+                <td id="on0425" class="off" onclick="turn('on0425')"></td>
+            </tr>
+            <tr>
+                <td id="on0501" class="off" onclick="turn('on0501')"></td>
+                <td id="on0502" class="off" onclick="turn('on0502')"></td>
+                <td id="on0503" class="off" onclick="turn('on0503')"></td>
+                <td id="on0504" class="off" onclick="turn('on0504')"></td>
+                <td id="on0505" class="off" onclick="turn('on0505')"></td>
+                <td id="on0506" class="off" onclick="turn('on0506')"></td>
+                <td id="on0507" class="off" onclick="turn('on0507')"></td>
+                <td id="on0508" class="off" onclick="turn('on0508')"></td>
+                <td id="on0509" class="off" onclick="turn('on0509')"></td>
+                <td id="on0510" class="off" onclick="turn('on0510')"></td>
+                <td id="on0511" class="off" onclick="turn('on0511')"></td>
+                <td id="on0512" class="off" onclick="turn('on0512')"></td>
+                <td id="on0513" class="off" onclick="turn('on0513')"></td>
+                <td id="on0514" class="off" onclick="turn('on0514')"></td>
+                <td id="on0515" class="off" onclick="turn('on0515')"></td>
+                <td id="on0516" class="off" onclick="turn('on0516')"></td>
+                <td id="on0517" class="off" onclick="turn('on0517')"></td>
+                <td id="on0518" class="off" onclick="turn('on0518')"></td>
+                <td id="on0519" class="off" onclick="turn('on0519')"></td>
+                <td id="on0520" class="off" onclick="turn('on0520')"></td>
+                <td id="on0521" class="off" onclick="turn('on0521')"></td>
+                <td id="on0522" class="off" onclick="turn('on0522')"></td>
+                <td id="on0523" class="off" onclick="turn('on0523')"></td>
+                <td id="on0524" class="off" onclick="turn('on0524')"></td>
+                <td id="on0525" class="off" onclick="turn('on0525')"></td>
+            </tr>
+            <tr>
+                <td id="on0601" class="off" onclick="turn('on0601')"></td>
+                <td id="on0602" class="off" onclick="turn('on0602')"></td>
+                <td id="on0603" class="off" onclick="turn('on0603')"></td>
+                <td id="on0604" class="off" onclick="turn('on0604')"></td>
+                <td id="on0605" class="off" onclick="turn('on0605')"></td>
+                <td id="on0606" class="off" onclick="turn('on0606')"></td>
+                <td id="on0607" class="off" onclick="turn('on0607')"></td>
+                <td id="on0608" class="off" onclick="turn('on0608')"></td>
+                <td id="on0609" class="off" onclick="turn('on0609')"></td>
+                <td id="on0610" class="off" onclick="turn('on0610')"></td>
+                <td id="on0611" class="off" onclick="turn('on0611')"></td>
+                <td id="on0612" class="off" onclick="turn('on0612')"></td>
+                <td id="on0613" class="off" onclick="turn('on0613')"></td>
+                <td id="on0614" class="off" onclick="turn('on0614')"></td>
+                <td id="on0615" class="off" onclick="turn('on0615')"></td>
+                <td id="on0616" class="off" onclick="turn('on0616')"></td>
+                <td id="on0617" class="off" onclick="turn('on0617')"></td>
+                <td id="on0618" class="off" onclick="turn('on0618')"></td>
+                <td id="on0619" class="off" onclick="turn('on0619')"></td>
+                <td id="on0620" class="off" onclick="turn('on0620')"></td>
+                <td id="on0621" class="off" onclick="turn('on0621')"></td>
+                <td id="on0622" class="off" onclick="turn('on0622')"></td>
+                <td id="on0623" class="off" onclick="turn('on0623')"></td>
+                <td id="on0624" class="off" onclick="turn('on0624')"></td>
+                <td id="on0625" class="off" onclick="turn('on0625')"></td>
+            </tr>
+            <tr>
+                <td id="on0701" class="off" onclick="turn('on0701')"></td>
+                <td id="on0702" class="off" onclick="turn('on0702')"></td>
+                <td id="on0703" class="off" onclick="turn('on0703')"></td>
+                <td id="on0704" class="off" onclick="turn('on0704')"></td>
+                <td id="on0705" class="off" onclick="turn('on0705')"></td>
+                <td id="on0706" class="off" onclick="turn('on0706')"></td>
+                <td id="on0707" class="off" onclick="turn('on0707')"></td>
+                <td id="on0708" class="off" onclick="turn('on0708')"></td>
+                <td id="on0709" class="off" onclick="turn('on0709')"></td>
+                <td id="on0710" class="off" onclick="turn('on0710')"></td>
+                <td id="on0711" class="off" onclick="turn('on0711')"></td>
+                <td id="on0712" class="off" onclick="turn('on0712')"></td>
+                <td id="on0713" class="off" onclick="turn('on0713')"></td>
+                <td id="on0714" class="off" onclick="turn('on0714')"></td>
+                <td id="on0715" class="off" onclick="turn('on0715')"></td>
+                <td id="on0716" class="off" onclick="turn('on0716')"></td>
+                <td id="on0717" class="off" onclick="turn('on0717')"></td>
+                <td id="on0718" class="off" onclick="turn('on0718')"></td>
+                <td id="on0719" class="off" onclick="turn('on0719')"></td>
+                <td id="on0720" class="off" onclick="turn('on0720')"></td>
+                <td id="on0721" class="off" onclick="turn('on0721')"></td>
+                <td id="on0722" class="off" onclick="turn('on0722')"></td>
+                <td id="on0723" class="off" onclick="turn('on0723')"></td>
+                <td id="on0724" class="off" onclick="turn('on0724')"></td>
+                <td id="on0725" class="off" onclick="turn('on0725')"></td>
+            </tr>
+            <tr>
+                <td id="on0801" class="off" onclick="turn('on0801')"></td>
+                <td id="on0802" class="off" onclick="turn('on0802')"></td>
+                <td id="on0803" class="off" onclick="turn('on0803')"></td>
+                <td id="on0804" class="off" onclick="turn('on0804')"></td>
+                <td id="on0805" class="off" onclick="turn('on0805')"></td>
+                <td id="on0806" class="off" onclick="turn('on0806')"></td>
+                <td id="on0807" class="off" onclick="turn('on0807')"></td>
+                <td id="on0808" class="off" onclick="turn('on0808')"></td>
+                <td id="on0809" class="off" onclick="turn('on0809')"></td>
+                <td id="on0810" class="off" onclick="turn('on0810')"></td>
+                <td id="on0811" class="off" onclick="turn('on0811')"></td>
+                <td id="on0812" class="off" onclick="turn('on0812')"></td>
+                <td id="on0813" class="off" onclick="turn('on0813')"></td>
+                <td id="on0814" class="off" onclick="turn('on0814')"></td>
+                <td id="on0815" class="off" onclick="turn('on0815')"></td>
+                <td id="on0816" class="off" onclick="turn('on0816')"></td>
+                <td id="on0817" class="off" onclick="turn('on0817')"></td>
+                <td id="on0818" class="off" onclick="turn('on0818')"></td>
+                <td id="on0819" class="off" onclick="turn('on0819')"></td>
+                <td id="on0820" class="off" onclick="turn('on0820')"></td>
+                <td id="on0821" class="off" onclick="turn('on0821')"></td>
+                <td id="on0822" class="off" onclick="turn('on0822')"></td>
+                <td id="on0823" class="off" onclick="turn('on0823')"></td>
+                <td id="on0824" class="off" onclick="turn('on0824')"></td>
+                <td id="on0825" class="off" onclick="turn('on0825')"></td>
+            </tr>
+            <tr>
+                <td id="on0901" class="off" onclick="turn('on0901')"></td>
+                <td id="on0902" class="off" onclick="turn('on0902')"></td>
+                <td id="on0903" class="off" onclick="turn('on0903')"></td>
+                <td id="on0904" class="off" onclick="turn('on0904')"></td>
+                <td id="on0905" class="off" onclick="turn('on0905')"></td>
+                <td id="on0906" class="off" onclick="turn('on0906')"></td>
+                <td id="on0907" class="off" onclick="turn('on0907')"></td>
+                <td id="on0908" class="off" onclick="turn('on0908')"></td>
+                <td id="on0909" class="off" onclick="turn('on0909')"></td>
+                <td id="on0910" class="off" onclick="turn('on0910')"></td>
+                <td id="on0911" class="off" onclick="turn('on0911')"></td>
+                <td id="on0912" class="off" onclick="turn('on0912')"></td>
+                <td id="on0913" class="off" onclick="turn('on0913')"></td>
+                <td id="on0914" class="off" onclick="turn('on0914')"></td>
+                <td id="on0915" class="off" onclick="turn('on0915')"></td>
+                <td id="on0916" class="off" onclick="turn('on0916')"></td>
+                <td id="on0917" class="off" onclick="turn('on0917')"></td>
+                <td id="on0918" class="off" onclick="turn('on0918')"></td>
+                <td id="on0919" class="off" onclick="turn('on0919')"></td>
+                <td id="on0920" class="off" onclick="turn('on0920')"></td>
+                <td id="on0921" class="off" onclick="turn('on0921')"></td>
+                <td id="on0922" class="off" onclick="turn('on0922')"></td>
+                <td id="on0923" class="off" onclick="turn('on0923')"></td>
+                <td id="on0924" class="off" onclick="turn('on0924')"></td>
+                <td id="on0925" class="off" onclick="turn('on0925')"></td>
+            </tr>
+            <tr>
+                <td id="on1001" class="off" onclick="turn('on1001')"></td>
+                <td id="on1002" class="off" onclick="turn('on1002')"></td>
+                <td id="on1003" class="off" onclick="turn('on1003')"></td>
+                <td id="on1004" class="off" onclick="turn('on1004')"></td>
+                <td id="on1005" class="off" onclick="turn('on1005')"></td>
+                <td id="on1006" class="off" onclick="turn('on1006')"></td>
+                <td id="on1007" class="off" onclick="turn('on1007')"></td>
+                <td id="on1008" class="off" onclick="turn('on1008')"></td>
+                <td id="on1009" class="off" onclick="turn('on1009')"></td>
+                <td id="on1010" class="off" onclick="turn('on1010')"></td>
+                <td id="on1011" class="off" onclick="turn('on1011')"></td>
+                <td id="on1012" class="off" onclick="turn('on1012')"></td>
+                <td id="on1013" class="off" onclick="turn('on1013')"></td>
+                <td id="on1014" class="off" onclick="turn('on1014')"></td>
+                <td id="on1015" class="off" onclick="turn('on1015')"></td>
+                <td id="on1016" class="off" onclick="turn('on1016')"></td>
+                <td id="on1017" class="off" onclick="turn('on1017')"></td>
+                <td id="on1018" class="off" onclick="turn('on1018')"></td>
+                <td id="on1019" class="off" onclick="turn('on1019')"></td>
+                <td id="on1020" class="off" onclick="turn('on1020')"></td>
+                <td id="on1021" class="off" onclick="turn('on1021')"></td>
+                <td id="on1022" class="off" onclick="turn('on1022')"></td>
+                <td id="on1023" class="off" onclick="turn('on1023')"></td>
+                <td id="on1024" class="off" onclick="turn('on1024')"></td>
+                <td id="on1025" class="off" onclick="turn('on1025')"></td>
+            </tr>
+            <tr>
+                <td id="on1101" class="off" onclick="turn('on1101')"></td>
+                <td id="on1102" class="off" onclick="turn('on1102')"></td>
+                <td id="on1103" class="off" onclick="turn('on1103')"></td>
+                <td id="on1104" class="off" onclick="turn('on1104')"></td>
+                <td id="on1105" class="off" onclick="turn('on1105')"></td>
+                <td id="on1106" class="off" onclick="turn('on1106')"></td>
+                <td id="on1107" class="off" onclick="turn('on1107')"></td>
+                <td id="on1108" class="off" onclick="turn('on1108')"></td>
+                <td id="on1109" class="off" onclick="turn('on1109')"></td>
+                <td id="on1110" class="off" onclick="turn('on1110')"></td>
+                <td id="on1111" class="off" onclick="turn('on1111')"></td>
+                <td id="on1112" class="off" onclick="turn('on1112')"></td>
+                <td id="on1113" class="off" onclick="turn('on1113')"></td>
+                <td id="on1114" class="off" onclick="turn('on1114')"></td>
+                <td id="on1115" class="off" onclick="turn('on1115')"></td>
+                <td id="on1116" class="off" onclick="turn('on1116')"></td>
+                <td id="on1117" class="off" onclick="turn('on1117')"></td>
+                <td id="on1118" class="off" onclick="turn('on1118')"></td>
+                <td id="on1119" class="off" onclick="turn('on1119')"></td>
+                <td id="on1120" class="off" onclick="turn('on1120')"></td>
+                <td id="on1121" class="off" onclick="turn('on1121')"></td>
+                <td id="on1122" class="off" onclick="turn('on1122')"></td>
+                <td id="on1123" class="off" onclick="turn('on1123')"></td>
+                <td id="on1124" class="off" onclick="turn('on1124')"></td>
+                <td id="on1125" class="off" onclick="turn('on1125')"></td>
+            </tr>
+            <tr>
+                <td id="on1201" class="off" onclick="turn('on1201')"></td>
+                <td id="on1202" class="off" onclick="turn('on1202')"></td>
+                <td id="on1203" class="off" onclick="turn('on1203')"></td>
+                <td id="on1204" class="off" onclick="turn('on1204')"></td>
+                <td id="on1205" class="off" onclick="turn('on1205')"></td>
+                <td id="on1206" class="off" onclick="turn('on1206')"></td>
+                <td id="on1207" class="off" onclick="turn('on1207')"></td>
+                <td id="on1208" class="off" onclick="turn('on1208')"></td>
+                <td id="on1209" class="off" onclick="turn('on1209')"></td>
+                <td id="on1210" class="off" onclick="turn('on1210')"></td>
+                <td id="on1211" class="off" onclick="turn('on1211')"></td>
+                <td id="on1212" class="off" onclick="turn('on1212')"></td>
+                <td id="on1213" class="off" onclick="turn('on1213')"></td>
+                <td id="on1214" class="off" onclick="turn('on1214')"></td>
+                <td id="on1215" class="off" onclick="turn('on1215')"></td>
+                <td id="on1216" class="off" onclick="turn('on1216')"></td>
+                <td id="on1217" class="off" onclick="turn('on1217')"></td>
+                <td id="on1218" class="off" onclick="turn('on1218')"></td>
+                <td id="on1219" class="off" onclick="turn('on1219')"></td>
+                <td id="on1220" class="off" onclick="turn('on1220')"></td>
+                <td id="on1221" class="off" onclick="turn('on1221')"></td>
+                <td id="on1222" class="off" onclick="turn('on1222')"></td>
+                <td id="on1223" class="off" onclick="turn('on1223')"></td>
+                <td id="on1224" class="off" onclick="turn('on1224')"></td>
+                <td id="on1225" class="off" onclick="turn('on1225')"></td>
+            </tr>
+            <tr>
+                <td id="on1301" class="off" onclick="turn('on1301')"></td>
+                <td id="on1302" class="off" onclick="turn('on1302')"></td>
+                <td id="on1303" class="off" onclick="turn('on1303')"></td>
+                <td id="on1304" class="off" onclick="turn('on1304')"></td>
+                <td id="on1305" class="off" onclick="turn('on1305')"></td>
+                <td id="on1306" class="off" onclick="turn('on1306')"></td>
+                <td id="on1307" class="off" onclick="turn('on1307')"></td>
+                <td id="on1308" class="off" onclick="turn('on1308')"></td>
+                <td id="on1309" class="off" onclick="turn('on1309')"></td>
+                <td id="on1310" class="off" onclick="turn('on1310')"></td>
+                <td id="on1311" class="off" onclick="turn('on1311')"></td>
+                <td id="on1312" class="off" onclick="turn('on1312')"></td>
+                <td id="on1313" class="off" onclick="turn('on1313')"></td>
+                <td id="on1314" class="off" onclick="turn('on1314')"></td>
+                <td id="on1315" class="off" onclick="turn('on1315')"></td>
+                <td id="on1316" class="off" onclick="turn('on1316')"></td>
+                <td id="on1317" class="off" onclick="turn('on1317')"></td>
+                <td id="on1318" class="off" onclick="turn('on1318')"></td>
+                <td id="on1319" class="off" onclick="turn('on1319')"></td>
+                <td id="on1320" class="off" onclick="turn('on1320')"></td>
+                <td id="on1321" class="off" onclick="turn('on1321')"></td>
+                <td id="on1322" class="off" onclick="turn('on1322')"></td>
+                <td id="on1323" class="off" onclick="turn('on1323')"></td>
+                <td id="on1324" class="off" onclick="turn('on1324')"></td>
+                <td id="on1325" class="off" onclick="turn('on1325')"></td>
+            </tr>
+            <tr>
+                <td id="on1401" class="off" onclick="turn('on1401')"></td>
+                <td id="on1402" class="off" onclick="turn('on1402')"></td>
+                <td id="on1403" class="off" onclick="turn('on1403')"></td>
+                <td id="on1404" class="off" onclick="turn('on1404')"></td>
+                <td id="on1405" class="off" onclick="turn('on1405')"></td>
+                <td id="on1406" class="off" onclick="turn('on1406')"></td>
+                <td id="on1407" class="off" onclick="turn('on1407')"></td>
+                <td id="on1408" class="off" onclick="turn('on1408')"></td>
+                <td id="on1409" class="off" onclick="turn('on1409')"></td>
+                <td id="on1410" class="off" onclick="turn('on1410')"></td>
+                <td id="on1411" class="off" onclick="turn('on1411')"></td>
+                <td id="on1412" class="off" onclick="turn('on1412')"></td>
+                <td id="on1413" class="off" onclick="turn('on1413')"></td>
+                <td id="on1414" class="off" onclick="turn('on1414')"></td>
+                <td id="on1415" class="off" onclick="turn('on1415')"></td>
+                <td id="on1416" class="off" onclick="turn('on1416')"></td>
+                <td id="on1417" class="off" onclick="turn('on1417')"></td>
+                <td id="on1418" class="off" onclick="turn('on1418')"></td>
+                <td id="on1419" class="off" onclick="turn('on1419')"></td>
+                <td id="on1420" class="off" onclick="turn('on1420')"></td>
+                <td id="on1421" class="off" onclick="turn('on1421')"></td>
+                <td id="on1422" class="off" onclick="turn('on1422')"></td>
+                <td id="on1423" class="off" onclick="turn('on1423')"></td>
+                <td id="on1424" class="off" onclick="turn('on1424')"></td>
+                <td id="on1425" class="off" onclick="turn('on1425')"></td>
+            </tr>
+            <tr>
+                <td id="on1501" class="off" onclick="turn('on1501')"></td>
+                <td id="on1502" class="off" onclick="turn('on1502')"></td>
+                <td id="on1503" class="off" onclick="turn('on1503')"></td>
+                <td id="on1504" class="off" onclick="turn('on1504')"></td>
+                <td id="on1505" class="off" onclick="turn('on1505')"></td>
+                <td id="on1506" class="off" onclick="turn('on1506')"></td>
+                <td id="on1507" class="off" onclick="turn('on1507')"></td>
+                <td id="on1508" class="off" onclick="turn('on1508')"></td>
+                <td id="on1509" class="off" onclick="turn('on1509')"></td>
+                <td id="on1510" class="off" onclick="turn('on1510')"></td>
+                <td id="on1511" class="off" onclick="turn('on1511')"></td>
+                <td id="on1512" class="off" onclick="turn('on1512')"></td>
+                <td id="on1513" class="off" onclick="turn('on1513')"></td>
+                <td id="on1514" class="off" onclick="turn('on1514')"></td>
+                <td id="on1515" class="off" onclick="turn('on1515')"></td>
+                <td id="on1516" class="off" onclick="turn('on1516')"></td>
+                <td id="on1517" class="off" onclick="turn('on1517')"></td>
+                <td id="on1518" class="off" onclick="turn('on1518')"></td>
+                <td id="on1519" class="off" onclick="turn('on1519')"></td>
+                <td id="on1520" class="off" onclick="turn('on1520')"></td>
+                <td id="on1521" class="off" onclick="turn('on1521')"></td>
+                <td id="on1522" class="off" onclick="turn('on1522')"></td>
+                <td id="on1523" class="off" onclick="turn('on1523')"></td>
+                <td id="on1524" class="off" onclick="turn('on1524')"></td>
+                <td id="on1525" class="off" onclick="turn('on1525')"></td>
+            </tr>
+            <tr>
+                <td id="on1601" class="off" onclick="turn('on1601')"></td>
+                <td id="on1602" class="off" onclick="turn('on1602')"></td>
+                <td id="on1603" class="off" onclick="turn('on1603')"></td>
+                <td id="on1604" class="off" onclick="turn('on1604')"></td>
+                <td id="on1605" class="off" onclick="turn('on1605')"></td>
+                <td id="on1606" class="off" onclick="turn('on1606')"></td>
+                <td id="on1607" class="off" onclick="turn('on1607')"></td>
+                <td id="on1608" class="off" onclick="turn('on1608')"></td>
+                <td id="on1609" class="off" onclick="turn('on1609')"></td>
+                <td id="on1610" class="off" onclick="turn('on1610')"></td>
+                <td id="on1611" class="off" onclick="turn('on1611')"></td>
+                <td id="on1612" class="off" onclick="turn('on1612')"></td>
+                <td id="on1613" class="off" onclick="turn('on1613')"></td>
+                <td id="on1614" class="off" onclick="turn('on1614')"></td>
+                <td id="on1615" class="off" onclick="turn('on1615')"></td>
+                <td id="on1616" class="off" onclick="turn('on1616')"></td>
+                <td id="on1617" class="off" onclick="turn('on1617')"></td>
+                <td id="on1618" class="off" onclick="turn('on1618')"></td>
+                <td id="on1619" class="off" onclick="turn('on1619')"></td>
+                <td id="on1620" class="off" onclick="turn('on1620')"></td>
+                <td id="on1621" class="off" onclick="turn('on1621')"></td>
+                <td id="on1622" class="off" onclick="turn('on1622')"></td>
+                <td id="on1623" class="off" onclick="turn('on1623')"></td>
+                <td id="on1624" class="off" onclick="turn('on1624')"></td>
+                <td id="on1625" class="off" onclick="turn('on1625')"></td>
+            </tr>
+            <tr>
+                <td id="on1701" class="off" onclick="turn('on1701')"></td>
+                <td id="on1702" class="off" onclick="turn('on1702')"></td>
+                <td id="on1703" class="off" onclick="turn('on1703')"></td>
+                <td id="on1704" class="off" onclick="turn('on1704')"></td>
+                <td id="on1705" class="off" onclick="turn('on1705')"></td>
+                <td id="on1706" class="off" onclick="turn('on1706')"></td>
+                <td id="on1707" class="off" onclick="turn('on1707')"></td>
+                <td id="on1708" class="off" onclick="turn('on1708')"></td>
+                <td id="on1709" class="off" onclick="turn('on1709')"></td>
+                <td id="on1710" class="off" onclick="turn('on1710')"></td>
+                <td id="on1711" class="off" onclick="turn('on1711')"></td>
+                <td id="on1712" class="off" onclick="turn('on1712')"></td>
+                <td id="on1713" class="off" onclick="turn('on1713')"></td>
+                <td id="on1714" class="off" onclick="turn('on1714')"></td>
+                <td id="on1715" class="off" onclick="turn('on1715')"></td>
+                <td id="on1716" class="off" onclick="turn('on1716')"></td>
+                <td id="on1717" class="off" onclick="turn('on1717')"></td>
+                <td id="on1718" class="off" onclick="turn('on1718')"></td>
+                <td id="on1719" class="off" onclick="turn('on1719')"></td>
+                <td id="on1720" class="off" onclick="turn('on1720')"></td>
+                <td id="on1721" class="off" onclick="turn('on1721')"></td>
+                <td id="on1722" class="off" onclick="turn('on1722')"></td>
+                <td id="on1723" class="off" onclick="turn('on1723')"></td>
+                <td id="on1724" class="off" onclick="turn('on1724')"></td>
+                <td id="on1725" class="off" onclick="turn('on1725')"></td>
+            </tr>
+            <tr>
+                <td id="on1801" class="off" onclick="turn('on1801')"></td>
+                <td id="on1802" class="off" onclick="turn('on1802')"></td>
+                <td id="on1803" class="off" onclick="turn('on1803')"></td>
+                <td id="on1804" class="off" onclick="turn('on1804')"></td>
+                <td id="on1805" class="off" onclick="turn('on1805')"></td>
+                <td id="on1806" class="off" onclick="turn('on1806')"></td>
+                <td id="on1807" class="off" onclick="turn('on1807')"></td>
+                <td id="on1808" class="off" onclick="turn('on1808')"></td>
+                <td id="on1809" class="off" onclick="turn('on1809')"></td>
+                <td id="on1810" class="off" onclick="turn('on1810')"></td>
+                <td id="on1811" class="off" onclick="turn('on1811')"></td>
+                <td id="on1812" class="off" onclick="turn('on1812')"></td>
+                <td id="on1813" class="off" onclick="turn('on1813')"></td>
+                <td id="on1814" class="off" onclick="turn('on1814')"></td>
+                <td id="on1815" class="off" onclick="turn('on1815')"></td>
+                <td id="on1816" class="off" onclick="turn('on1816')"></td>
+                <td id="on1817" class="off" onclick="turn('on1817')"></td>
+                <td id="on1818" class="off" onclick="turn('on1818')"></td>
+                <td id="on1819" class="off" onclick="turn('on1819')"></td>
+                <td id="on1820" class="off" onclick="turn('on1820')"></td>
+                <td id="on1821" class="off" onclick="turn('on1821')"></td>
+                <td id="on1822" class="off" onclick="turn('on1822')"></td>
+                <td id="on1823" class="off" onclick="turn('on1823')"></td>
+                <td id="on1824" class="off" onclick="turn('on1824')"></td>
+                <td id="on1825" class="off" onclick="turn('on1825')"></td>
+            </tr>
+            <tr>
+                <td id="on1901" class="off" onclick="turn('on1901')"></td>
+                <td id="on1902" class="off" onclick="turn('on1902')"></td>
+                <td id="on1903" class="off" onclick="turn('on1903')"></td>
+                <td id="on1904" class="off" onclick="turn('on1904')"></td>
+                <td id="on1905" class="off" onclick="turn('on1905')"></td>
+                <td id="on1906" class="off" onclick="turn('on1906')"></td>
+                <td id="on1907" class="off" onclick="turn('on1907')"></td>
+                <td id="on1908" class="off" onclick="turn('on1908')"></td>
+                <td id="on1909" class="off" onclick="turn('on1909')"></td>
+                <td id="on1910" class="off" onclick="turn('on1910')"></td>
+                <td id="on1911" class="off" onclick="turn('on1911')"></td>
+                <td id="on1912" class="off" onclick="turn('on1912')"></td>
+                <td id="on1913" class="off" onclick="turn('on1913')"></td>
+                <td id="on1914" class="off" onclick="turn('on1914')"></td>
+                <td id="on1915" class="off" onclick="turn('on1915')"></td>
+                <td id="on1916" class="off" onclick="turn('on1916')"></td>
+                <td id="on1917" class="off" onclick="turn('on1917')"></td>
+                <td id="on1918" class="off" onclick="turn('on1918')"></td>
+                <td id="on1919" class="off" onclick="turn('on1919')"></td>
+                <td id="on1920" class="off" onclick="turn('on1920')"></td>
+                <td id="on1921" class="off" onclick="turn('on1921')"></td>
+                <td id="on1922" class="off" onclick="turn('on1922')"></td>
+                <td id="on1923" class="off" onclick="turn('on1923')"></td>
+                <td id="on1924" class="off" onclick="turn('on1924')"></td>
+                <td id="on1925" class="off" onclick="turn('on1925')"></td>
+            </tr>
+            <tr>
+                <td id="on2001" class="off" onclick="turn('on2001')"></td>
+                <td id="on2002" class="off" onclick="turn('on2002')"></td>
+                <td id="on2003" class="off" onclick="turn('on2003')"></td>
+                <td id="on2004" class="off" onclick="turn('on2004')"></td>
+                <td id="on2005" class="off" onclick="turn('on2005')"></td>
+                <td id="on2006" class="off" onclick="turn('on2006')"></td>
+                <td id="on2007" class="off" onclick="turn('on2007')"></td>
+                <td id="on2008" class="off" onclick="turn('on2008')"></td>
+                <td id="on2009" class="off" onclick="turn('on2009')"></td>
+                <td id="on2010" class="off" onclick="turn('on2010')"></td>
+                <td id="on2011" class="off" onclick="turn('on2011')"></td>
+                <td id="on2012" class="off" onclick="turn('on2012')"></td>
+                <td id="on2013" class="off" onclick="turn('on2013')"></td>
+                <td id="on2014" class="off" onclick="turn('on2014')"></td>
+                <td id="on2015" class="off" onclick="turn('on2015')"></td>
+                <td id="on2016" class="off" onclick="turn('on2016')"></td>
+                <td id="on2017" class="off" onclick="turn('on2017')"></td>
+                <td id="on2018" class="off" onclick="turn('on2018')"></td>
+                <td id="on2019" class="off" onclick="turn('on2019')"></td>
+                <td id="on2020" class="off" onclick="turn('on2020')"></td>
+                <td id="on2021" class="off" onclick="turn('on2021')"></td>
+                <td id="on2022" class="off" onclick="turn('on2022')"></td>
+                <td id="on2023" class="off" onclick="turn('on2023')"></td>
+                <td id="on2024" class="off" onclick="turn('on2024')"></td>
+                <td id="on2025" class="off" onclick="turn('on2025')"></td>
+            </tr>
+            <tr>
+                <td id="on2101" class="off" onclick="turn('on2101')"></td>
+                <td id="on2102" class="off" onclick="turn('on2102')"></td>
+                <td id="on2103" class="off" onclick="turn('on2103')"></td>
+                <td id="on2104" class="off" onclick="turn('on2104')"></td>
+                <td id="on2105" class="off" onclick="turn('on2105')"></td>
+                <td id="on2106" class="off" onclick="turn('on2106')"></td>
+                <td id="on2107" class="off" onclick="turn('on2107')"></td>
+                <td id="on2108" class="off" onclick="turn('on2108')"></td>
+                <td id="on2109" class="off" onclick="turn('on2109')"></td>
+                <td id="on2110" class="off" onclick="turn('on2110')"></td>
+                <td id="on2111" class="off" onclick="turn('on2111')"></td>
+                <td id="on2112" class="off" onclick="turn('on2112')"></td>
+                <td id="on2113" class="off" onclick="turn('on2113')"></td>
+                <td id="on2114" class="off" onclick="turn('on2114')"></td>
+                <td id="on2115" class="off" onclick="turn('on2115')"></td>
+                <td id="on2116" class="off" onclick="turn('on2116')"></td>
+                <td id="on2117" class="off" onclick="turn('on2117')"></td>
+                <td id="on2118" class="off" onclick="turn('on2118')"></td>
+                <td id="on2119" class="off" onclick="turn('on2119')"></td>
+                <td id="on2120" class="off" onclick="turn('on2120')"></td>
+                <td id="on2121" class="off" onclick="turn('on2121')"></td>
+                <td id="on2122" class="off" onclick="turn('on2122')"></td>
+                <td id="on2123" class="off" onclick="turn('on2123')"></td>
+                <td id="on2124" class="off" onclick="turn('on2124')"></td>
+                <td id="on2125" class="off" onclick="turn('on2125')"></td>
+            </tr>
+            <tr>
+                <td id="on2201" class="off" onclick="turn('on2201')"></td>
+                <td id="on2202" class="off" onclick="turn('on2202')"></td>
+                <td id="on2203" class="off" onclick="turn('on2203')"></td>
+                <td id="on2204" class="off" onclick="turn('on2204')"></td>
+                <td id="on2205" class="off" onclick="turn('on2205')"></td>
+                <td id="on2206" class="off" onclick="turn('on2206')"></td>
+                <td id="on2207" class="off" onclick="turn('on2207')"></td>
+                <td id="on2208" class="off" onclick="turn('on2208')"></td>
+                <td id="on2209" class="off" onclick="turn('on2209')"></td>
+                <td id="on2210" class="off" onclick="turn('on2210')"></td>
+                <td id="on2211" class="off" onclick="turn('on2211')"></td>
+                <td id="on2212" class="off" onclick="turn('on2212')"></td>
+                <td id="on2213" class="off" onclick="turn('on2213')"></td>
+                <td id="on2214" class="off" onclick="turn('on2214')"></td>
+                <td id="on2215" class="off" onclick="turn('on2215')"></td>
+                <td id="on2216" class="off" onclick="turn('on2216')"></td>
+                <td id="on2217" class="off" onclick="turn('on2217')"></td>
+                <td id="on2218" class="off" onclick="turn('on2218')"></td>
+                <td id="on2219" class="off" onclick="turn('on2219')"></td>
+                <td id="on2220" class="off" onclick="turn('on2220')"></td>
+                <td id="on2221" class="off" onclick="turn('on2221')"></td>
+                <td id="on2222" class="off" onclick="turn('on2222')"></td>
+                <td id="on2223" class="off" onclick="turn('on2223')"></td>
+                <td id="on2224" class="off" onclick="turn('on2224')"></td>
+                <td id="on2225" class="off" onclick="turn('on2225')"></td>
+            </tr>
+            <tr>
+                <td id="on2301" class="off" onclick="turn('on2301')"></td>
+                <td id="on2302" class="off" onclick="turn('on2302')"></td>
+                <td id="on2303" class="off" onclick="turn('on2303')"></td>
+                <td id="on2304" class="off" onclick="turn('on2304')"></td>
+                <td id="on2305" class="off" onclick="turn('on2305')"></td>
+                <td id="on2306" class="off" onclick="turn('on2306')"></td>
+                <td id="on2307" class="off" onclick="turn('on2307')"></td>
+                <td id="on2308" class="off" onclick="turn('on2308')"></td>
+                <td id="on2309" class="off" onclick="turn('on2309')"></td>
+                <td id="on2310" class="off" onclick="turn('on2310')"></td>
+                <td id="on2311" class="off" onclick="turn('on2311')"></td>
+                <td id="on2312" class="off" onclick="turn('on2312')"></td>
+                <td id="on2313" class="off" onclick="turn('on2313')"></td>
+                <td id="on2314" class="off" onclick="turn('on2314')"></td>
+                <td id="on2315" class="off" onclick="turn('on2315')"></td>
+                <td id="on2316" class="off" onclick="turn('on2316')"></td>
+                <td id="on2317" class="off" onclick="turn('on2317')"></td>
+                <td id="on2318" class="off" onclick="turn('on2318')"></td>
+                <td id="on2319" class="off" onclick="turn('on2319')"></td>
+                <td id="on2320" class="off" onclick="turn('on2320')"></td>
+                <td id="on2321" class="off" onclick="turn('on2321')"></td>
+                <td id="on2322" class="off" onclick="turn('on2322')"></td>
+                <td id="on2323" class="off" onclick="turn('on2323')"></td>
+                <td id="on2324" class="off" onclick="turn('on2324')"></td>
+                <td id="on2325" class="off" onclick="turn('on2325')"></td>
+            </tr>
+            <tr>
+                <td id="on2401" class="off" onclick="turn('on2401')"></td>
+                <td id="on2402" class="off" onclick="turn('on2402')"></td>
+                <td id="on2403" class="off" onclick="turn('on2403')"></td>
+                <td id="on2404" class="off" onclick="turn('on2404')"></td>
+                <td id="on2405" class="off" onclick="turn('on2405')"></td>
+                <td id="on2406" class="off" onclick="turn('on2406')"></td>
+                <td id="on2407" class="off" onclick="turn('on2407')"></td>
+                <td id="on2408" class="off" onclick="turn('on2408')"></td>
+                <td id="on2409" class="off" onclick="turn('on2409')"></td>
+                <td id="on2410" class="off" onclick="turn('on2410')"></td>
+                <td id="on2411" class="off" onclick="turn('on2411')"></td>
+                <td id="on2412" class="off" onclick="turn('on2412')"></td>
+                <td id="on2413" class="off" onclick="turn('on2413')"></td>
+                <td id="on2414" class="off" onclick="turn('on2414')"></td>
+                <td id="on2415" class="off" onclick="turn('on2415')"></td>
+                <td id="on2416" class="off" onclick="turn('on2416')"></td>
+                <td id="on2417" class="off" onclick="turn('on2417')"></td>
+                <td id="on2418" class="off" onclick="turn('on2418')"></td>
+                <td id="on2419" class="off" onclick="turn('on2419')"></td>
+                <td id="on2420" class="off" onclick="turn('on2420')"></td>
+                <td id="on2421" class="off" onclick="turn('on2421')"></td>
+                <td id="on2422" class="off" onclick="turn('on2422')"></td>
+                <td id="on2423" class="off" onclick="turn('on2423')"></td>
+                <td id="on2424" class="off" onclick="turn('on2424')"></td>
+                <td id="on2425" class="off" onclick="turn('on2425')"></td>
+            </tr>
+            <tr>
+                <td id="on2501" class="off" onclick="turn('on2501')"></td>
+                <td id="on2502" class="off" onclick="turn('on2502')"></td>
+                <td id="on2503" class="off" onclick="turn('on2503')"></td>
+                <td id="on2504" class="off" onclick="turn('on2504')"></td>
+                <td id="on2505" class="off" onclick="turn('on2505')"></td>
+                <td id="on2506" class="off" onclick="turn('on2506')"></td>
+                <td id="on2507" class="off" onclick="turn('on2507')"></td>
+                <td id="on2508" class="off" onclick="turn('on2508')"></td>
+                <td id="on2509" class="off" onclick="turn('on2509')"></td>
+                <td id="on2510" class="off" onclick="turn('on2510')"></td>
+                <td id="on2511" class="off" onclick="turn('on2511')"></td>
+                <td id="on2512" class="off" onclick="turn('on2512')"></td>
+                <td id="on2513" class="off" onclick="turn('on2513')"></td>
+                <td id="on2514" class="off" onclick="turn('on2514')"></td>
+                <td id="on2515" class="off" onclick="turn('on2515')"></td>
+                <td id="on2516" class="off" onclick="turn('on2516')"></td>
+                <td id="on2517" class="off" onclick="turn('on2517')"></td>
+                <td id="on2518" class="off" onclick="turn('on2518')"></td>
+                <td id="on2519" class="off" onclick="turn('on2519')"></td>
+                <td id="on2520" class="off" onclick="turn('on2520')"></td>
+                <td id="on2521" class="off" onclick="turn('on2521')"></td>
+                <td id="on2522" class="off" onclick="turn('on2522')"></td>
+                <td id="on2523" class="off" onclick="turn('on2523')"></td>
+                <td id="on2524" class="off" onclick="turn('on2524')"></td>
+                <td id="on2525" class="off" onclick="turn('on2525')"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="right contain">
+        <h2>控制台</h2>
+        <form>
+            <p>
+
+            </p>
+            <p>
+                <input class="button" type="button" onclick="switchOn()" value="开始"/>
+                <input class="button" type="button" onclick="suspend()" value="暂停"/>
+                <input class="button" type="button" onclick="switchOff()" value="结束"/>
+            </p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
