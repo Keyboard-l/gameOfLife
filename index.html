@@ -8,6 +8,9 @@
     <script rel="script" type="text/javascript" src="./js/try.js"></script>
 </head>
 <body>
+<header>
+    这是一个还没写完的header
+</header>
 <div class="main">
     <div class="left contain">
         <h2>生命游戏</h2>
@@ -710,9 +713,30 @@
     <div class="right contain">
         <h2>控制台</h2>
         <form>
-            <p>
-
-            </p>
+            <p>活细胞的邻居数为以下值时存活:</p>
+            <div class="checkboxDiv">
+                <div id="live0" class="checkbox off" title="0" onclick="live(0)">0</div>
+                <div id="live1" class="checkbox off" title="1" onclick="live(1)">1</div>
+                <div id="live2" class="checkbox on" title="2" onclick="live(2)">2</div>
+                <div id="live3" class="checkbox on" title="3" onclick="live(3)">3</div>
+                <div id="live4" class="checkbox off" title="4" onclick="live(4)">4</div>
+                <div id="live5" class="checkbox off" title="5" onclick="live(5)">5</div>
+                <div id="live6" class="checkbox off" title="6" onclick="live(6)">6</div>
+                <div id="live7" class="checkbox off" title="7" onclick="live(7)">7</div>
+                <div id="live8" class="checkbox off" title="8" onclick="live(8)">8</div>
+            </div>
+            <p>空格的邻居数为以下值时出生:</p>
+            <div class="checkboxDiv">
+                <div id="born0" class="checkbox off" title="0" onclick="born(0)">0</div>
+                <div id="born1" class="checkbox off" title="1" onclick="born(1)">1</div>
+                <div id="born2" class="checkbox off" title="2" onclick="born(2)">2</div>
+                <div id="born3" class="checkbox on" title="3" onclick="born(3)">3</div>
+                <div id="born4" class="checkbox off" title="4" onclick="born(4)">4</div>
+                <div id="born5" class="checkbox off" title="5" onclick="born(5)">5</div>
+                <div id="born6" class="checkbox off" title="6" onclick="born(6)">6</div>
+                <div id="born7" class="checkbox off" title="7" onclick="born(7)">7</div>
+                <div id="born8" class="checkbox off" title="8" onclick="born(8)">8</div>
+            </div>
             <p>
                 <input class="button" type="button" onclick="switchOn()" value="开始"/>
                 <input class="button" type="button" onclick="suspend()" value="暂停"/>
@@ -721,5 +745,10 @@
         </form>
     </div>
 </div>
+<footer>
+    <div class="line"></div>
+    <div class="mes">这是一个还没写完的footer</div>
+
+</footer>
 </body>
 </html>

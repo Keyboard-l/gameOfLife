@@ -20,12 +20,16 @@ p{
     margin: 10px 0;
 }
 
-
+header{
+    height: 50px;
+    background-color: #323232;
+    color: #c8c8c8
+}
 div.main{
     width: 1350px;
-    height: 2000px;
+    height: 750px;
     margin: 50px auto;
-    padding: 75px;
+    padding: 20px 75px;
     /*background-color: #323232;*/
 }
 div.contain{
@@ -53,19 +57,27 @@ table{
     border-color: #323232;
 }
 
-td{
+td.on, td.off{
     width: 20px;
     height: 20px;
-    background-color: inherit;
-    /*border: 2px;*/
-    /*border-style: solid;*/
-    /*border-color: #646464;*/
 }
 td.on{
     background-color: #696969;
 }
+td.on:hover{
+    background-color: #787878;
+}
+td.on:active{
+    background-color: #141414;
+}
 td.off{
     background-color: #191919;
+}
+td.off:hover{
+    background-color: #323232;
+}
+td.off:active{
+    background-color: #787878;
 }
 
 input.button{
@@ -78,5 +90,64 @@ input.button{
     padding: 5px 10px;
     color: #969696;
 }
+input.button:hover{
+    background-color: #c8c8c8;
+    color: #191919;
+}
+input.button:active{
+    background-color: #191919;
+    color: #787878;
+}
 
+div.checkboxDiv{
+    height: 30px;
+}
+div.checkbox{
+    height: 22px;
+    width: 22px;
+    float: left;
+    margin: 2px;
+    border: 1px;
+    border-style: solid;
+    border-color:  #696969;
+    text-align: center;
+    font-size: 15px;
+}
+div.checkbox.off{
+    background-color: #323232;
+    color: #c8c8c8;
+}
+div.checkbox.off:hover{
+    background-color: #646464;
+    color: #c8c8c8;
+}
+div.checkbox.off:active{
+    background-color: #c8c8c8;
+    color: #191919;
+}
+div.checkbox.on{
+    background-color: #c8c8c8;
+    color: #191919;
+}
+div.checkbox.on:hover{
+    background-color: #a0a0a0;
+    color: #191919;
+}
+div.checkbox.on:active{
+    background-color: #c8c8c8;
+    color: #191919;
+}
 
+footer{
+    height: 200px;
+    /*background-color: #0063b1;*/
+}
+div.line{
+    height: 1px;
+    margin: 0 auto;
+    background-color: #464646;
+    width: 96%;
+}
+div.mes{
+    padding: 10px 30px;
+}

@@ -3,6 +3,7 @@
  */
 var ii = 0, jj = 0, status = 0;
 var cell1 = [], cell2 = [];
+var livePro = [0, 0, 1, 1, 0, 0, 0, 0, 0], bornPro = [0, 0, 0, 1, 0, 0, 0, 0, 0];
 for(ii = 0;ii < 28;ii++){
     cell1[ii] = [];
     cell2[ii] = [];
@@ -58,7 +59,7 @@ function arun() {
                 document.getElementById(id).className = "off";
         }
     }
-    setTimeout("arun()", 100);
+    setTimeout("arun()", 200);
 }
 
 function switchOn(){  // 游戏开始
@@ -102,15 +103,14 @@ function switchStatus()
             n += cell1[i][j-1]+cell1[i][j+1];
             n += cell1[i+1][j-1]+cell1[i+1][j]+cell1[i+1][j+1];
             if(cell1[i][j]==1){
-                if(n>3 || n<2){
-                    cell2[i][j] = 0;
-                }
-                else{
+                if(livePro[n])
                     cell2[i][j] = 1;
-                }
+                else
+                    cell2[i][j] = 0;
+
             }
             else{
-                if(n==3){
+                if(bornPro[n]){
                     cell2[i][j] = 1;
                 }
                 else{
@@ -123,5 +123,32 @@ function switchStatus()
         for(j=1;j<26;j++){
             cell1[i][j]=cell2[i][j];
         }
+    }
+}
+
+function live(n)
+{
+    var id;
+    id = "live"+n.toString();
+    if(document.getElementById(id).className == "checkbox off") {
+        document.getElementById(id).className = "checkbox on";
+        livePro[n] = 1;
+    }
+    else {
+        document.getElementById(id).className = "checkbox off";
+        livePro[n] = 0;
+    }
+}
+function born(n)
+{
+    var id;
+    id = "born"+n.toString();
+    if(document.getElementById(id).className == "checkbox off") {
+        document.getElementById(id).className = "checkbox on";
+        bornPro[n] = 1;
+    }
+    else {
+        document.getElementById(id).className = "checkbox off";
+        bornPro[n] = 0;
     }
 }
