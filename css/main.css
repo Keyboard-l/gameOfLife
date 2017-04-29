@@ -25,20 +25,25 @@ header{
     background-color: #323232;
     color: #c8c8c8
 }
-div.main{
-    margin: 0 auto;
-    padding: 0;
-    /*background-color: #323232;*/
+/*div.main{*/
+    /*margin: 0 auto;*/
+    /*padding: 0;*/
+    /*!*background-color: #323232;*!*/
+/*}*/
+div.main.middle{
+    background-color: #323232;
 }
 div.contain{
-    width: 1200px;
+    width: 960px;
     margin: 0 auto;
     padding: 10px;
     text-align: center;
     /*background-color: #1e323c;*/
 }
 div.contain.top{
-
+    width: 860px;
+    padding: 50px 50px;
+    text-align: left;
 }
 div.contain.bottom{
 
@@ -54,8 +59,8 @@ table{
 }
 
 td.on, td.off{
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
 }
 td.on{
     background-color: #696969;
@@ -144,14 +149,17 @@ div.checkbox.on:active{
 
 footer{
     height: 200px;
-    /*background-color: #0063b1;*/
+    background-color: #323232;
+    padding-top: 10px;
 }
 div.line{
     height: 1px;
     margin: 0 auto;
-    background-color: #464646;
+    background-color: #c8c8c8;
     width: 96%;
 }
 div.mes{
-    padding: 10px 30px;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 10px 0;
 }
