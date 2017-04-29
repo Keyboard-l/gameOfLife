@@ -26,16 +26,16 @@ header{
     color: #c8c8c8
 }
 div.main{
-    width: 1350px;
-    height: 750px;
-    margin: 50px auto;
-    padding: 20px 75px;
+    width: 1200px;
+    height: 680px;
+    margin: 30px auto;
+    padding: 10px 0;
     /*background-color: #323232;*/
 }
 div.contain{
     width: 260px;
-    margin: 30px 15px;
-    padding: 30px;
+    margin: 30px 10px;
+    padding: 10px;
     float: left;
     /*background-color: #1e323c;*/
 }
@@ -51,15 +51,15 @@ div.right{
 }
 table{
     margin: 20px auto;
-    border: 2px;
+    border: 1px;
     background-color: #323232;
     border-style: solid;
     border-color: #323232;
 }
 
 td.on, td.off{
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
 }
 td.on{
     background-color: #696969;

@@ -4,10 +4,10 @@
 var ii = 0, jj = 0, status = 0;
 var cell1 = [], cell2 = [];
 var livePro = [0, 0, 1, 1, 0, 0, 0, 0, 0], bornPro = [0, 0, 0, 1, 0, 0, 0, 0, 0];
-for(ii = 0;ii < 28;ii++){
+for(ii = 0;ii < 52;ii++){
     cell1[ii] = [];
     cell2[ii] = [];
-    for(jj = 0;jj < 28;jj++){
+    for(jj = 0;jj < 52;jj++){
         cell1[ii][jj] = 0;
         cell2[ii][jj] = 0;
     }
@@ -20,9 +20,9 @@ function run()
         return 0;
     id = "on"+mytoString(ii+1)+mytoString(jj+1);
     document.getElementById(id).className = "off";
-    if(jj+1<25)
+    if(jj+1<50)
         jj++;
-    else if(ii+1<25){
+    else if(ii+1<50){
         jj=0;
         ii++;
     }
@@ -40,8 +40,8 @@ function arun() {
     if (status == 0)
         return 0;
 
-    for (i = 1; i < 26; i++) {
-        for (j = 1; j < 26; j++) {
+    for (i = 1; i < 51; i++) {
+        for (j = 1; j < 51; j++) {
             id = "on" + mytoString(i) + mytoString(j);
             if (document.getElementById(id).className == "on")
                 cell1[i][j] = 1;
@@ -50,8 +50,8 @@ function arun() {
         }
     }
     switchStatus();
-    for(i = 1;i < 26;i++){
-        for(j = 1;j < 26;j++) {
+    for(i = 1;i < 51;i++){
+        for(j = 1;j < 51;j++) {
             id = "on" + mytoString(i) + mytoString(j);
             if (cell1[i][j] == 1)
                 document.getElementById(id).className = "on";
@@ -72,8 +72,8 @@ function suspend(){  // 游戏暂停
 function switchOff(){  // 游戏停止
     var i, j, id;
     status = 0;
-    for(i = 0;i < 25;i++){
-        for(j = 0;j < 25;j++){
+    for(i = 0;i < 50;i++){
+        for(j = 0;j < 50;j++){
             id = "on"+mytoString(i+1)+mytoString(j+1);
             document.getElementById(id).className = "off";
         }
@@ -97,8 +97,8 @@ function mytoString(n)
 function switchStatus()
 {
     var n, i, j;
-    for(i=1;i<26;i++){
-        for(j=1;j<26;j++){
+    for(i=1;i<51;i++){
+        for(j=1;j<51;j++){
             n = cell1[i-1][j-1]+cell1[i-1][j]+cell1[i-1][j+1];
             n += cell1[i][j-1]+cell1[i][j+1];
             n += cell1[i+1][j-1]+cell1[i+1][j]+cell1[i+1][j+1];
@@ -119,8 +119,8 @@ function switchStatus()
             }
         }
     }
-    for(i=1;i<26;i++){
-        for(j=1;j<26;j++){
+    for(i=1;i<51;i++){
+        for(j=1;j<51;j++){
             cell1[i][j]=cell2[i][j];
         }
     }
