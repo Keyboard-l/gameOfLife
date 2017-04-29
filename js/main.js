@@ -59,7 +59,7 @@ function arun() {
                 document.getElementById(id).className = "off";
         }
     }
-    setTimeout("arun()", 200);
+    setTimeout("arun()", 100);
 }
 
 function switchOn(){  // 游戏开始

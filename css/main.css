@@ -26,31 +26,27 @@ header{
     color: #c8c8c8
 }
 div.main{
-    width: 1200px;
-    height: 680px;
-    margin: 30px auto;
-    padding: 10px 0;
+    margin: 0 auto;
+    padding: 0;
     /*background-color: #323232;*/
 }
 div.contain{
-    width: 260px;
-    margin: 30px 10px;
+    width: 1200px;
+    margin: 0 auto;
     padding: 10px;
-    float: left;
+    text-align: center;
     /*background-color: #1e323c;*/
 }
-div.left{
+div.contain.top{
 
 }
-div.center{
-    width: 560px;
-    /*background-color: #1e323c;*/
-}
-div.right{
+div.contain.bottom{
 
 }
+
+
 table{
-    margin: 20px auto;
+    margin: 0 auto;
     border: 1px;
     background-color: #323232;
     border-style: solid;
@@ -58,8 +54,8 @@ table{
 }
 
 td.on, td.off{
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
 }
 td.on{
     background-color: #696969;
@@ -99,8 +95,16 @@ input.button:active{
     color: #787878;
 }
 
+
+div.checkboxBox{
+    width: 500px;
+    height: 35px;
+    margin: 0 auto;
+    text-align: left;
+}
 div.checkboxDiv{
     height: 30px;
+    float: right;
 }
 div.checkbox{
     height: 22px;
