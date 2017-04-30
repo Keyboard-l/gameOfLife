@@ -142,8 +142,8 @@ div.checkboxDiv{
     margin: 0 auto;
 }
 div.checkbox{
-    height: 32px;
-    width: 32px;
+    height: 31px;
+    width: 31px;
     float: left;
     margin: 2px;
     border: 1px;
@@ -192,4 +192,10 @@ div.mes{
     width: 960px;
     margin: 0 auto;
     padding: 10px 0;
+}
+
+a:link,a:visited{
+    font-size: 105%;
+    color: #b4b4b4;
+    font-weight: bold;
 }
